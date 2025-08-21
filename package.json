@@ -20,6 +20,7 @@
     "express": "^5.1.0",
     "express-session-sqlite": "^2.1.1",
     "mongodb": "^6.18.0",
+    "node-fetch": "^3.3.2",
     "sqlite3": "^5.1.7",
     "zod": "^3.25.76"
   },

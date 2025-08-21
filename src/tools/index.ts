@@ -1,7 +1,6 @@
-// src/tools/index.ts
 import { tool } from "@openai/agents";
 import { z } from "zod";
-import { AppContext } from "../types/api.js";
+import { AppContext } from "../types";
 
 export const createTools = () => {
   const basicCalculatorTool = tool({
@@ -35,7 +34,7 @@ export const createTools = () => {
     execute: async (_args, runContext) => {
       const ctx = runContext?.context as AppContext | undefined;
       return `User ID: ${ctx?.userId || "unknown"}\nSession: ${
-        ctx?.sessionId || "unknown"
+        ctx?.userId || "unknown"
       }\nConversation ID: ${ctx?.conversationId || "N/A"}`;
     },
   });

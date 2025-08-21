@@ -1,10 +1,16 @@
 import { Agent, user, assistant, run, RunContext } from "@openai/agents";
 import { Db } from "mongodb";
-import { MCPConnectionManager } from "../mcp/index";
+import { MCPConnectionManager } from "../mcp/index.js";
 import { ConversationManager } from "../conversation/index.js";
 import { createTools } from "../tools/index.js";
 import { extractImages, extractFunctionCalls } from "../utils/index.js";
+import { MCPServerStreamableHttp } from "@openai/agents";
+const mcp = new MCPServerStreamableHttp({
+  name: "ai_agent_server",
+  url: "http://localhost:3000/mcp",
+});
 
+mcp.connect();
 interface AppContext {
   userId: string;
   sessionId: string;
@@ -38,6 +44,7 @@ User request: "${message}"
     `,
     tools: agentTools,
     model: "gpt-4o",
+    mcpServers: [mcp],
   });
 
   const history = await conversationManager.getHistory(conversationId, 10);
