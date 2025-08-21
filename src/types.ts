@@ -20,6 +20,7 @@ export type Conversation = {
 export type AgentRunResult = {
   conversationId: string;
   finalOutput: string;
+  images?: string[]; // ✅
 };
 
 // App context type

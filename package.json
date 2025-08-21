@@ -7,13 +7,14 @@
     "dev": "tsc --watch",
     "start": "node dist/server.js",
     "watch": "nodemon dist/server.js",
-    "dev:server": "tsc && concurrently \"tsc --watch\" \"nodemon dist/server.js\""
+    "dev:server": "tsc && concurrently \"tsc --watch\" \"nodemon dist/server.js\" \"nodemon dist/mcp/server.js\""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@modelcontextprotocol/server-filesystem": "^2025.8.18",
     "@openai/agents": "^0.0.17",
     "dotenv": "^17.2.1",
     "express": "^5.1.0",
