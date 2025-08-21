@@ -2,9 +2,9 @@
 import express from "express";
 import path from "path";
 import { DatabaseManager } from "./models/mongo.js"; // ✅ singleton
-import { MCPConnectionManager } from "./mcp/index";
-import { ConversationManager } from "./conversation/index";
-import { processChat } from "./agent/index";
+import { MCPConnectionManager } from "./mcp/index.js";
+import { ConversationManager } from "./conversation/index.js";
+import { processChat } from "./agent/index.js";
 
 export const createApp = async () => {
   const app = express();

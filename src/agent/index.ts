@@ -1,9 +1,9 @@
 import { Agent, user, assistant, run, RunContext } from "@openai/agents";
 import { Db } from "mongodb";
 import { MCPConnectionManager } from "../mcp/index";
-import { ConversationManager } from "../conversation/index";
-import { createTools } from "../tools/index";
-import { extractImages, extractFunctionCalls } from "../utils/index";
+import { ConversationManager } from "../conversation/index.js";
+import { createTools } from "../tools/index.js";
+import { extractImages, extractFunctionCalls } from "../utils/index.js";
 
 interface AppContext {
   userId: string;
